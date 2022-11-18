@@ -18,6 +18,7 @@ List profiles = [
     'last_name': 'Junochut',
     'email': 'prayat69.j@kmitl.ac.th',
     'mobile_number': '099-456-7856',
+    'report_count': 999,
   },
   {
     'profileID': 2,
@@ -28,6 +29,7 @@ List profiles = [
     'last_name': 'Chaipanna',
     'email': 'KingRukDek99@kmitl.ac.th',
     'mobile_number': '082-368-6056',
+    'report_count': 2,
   },
   {
     'profileID': 3,
@@ -38,17 +40,18 @@ List profiles = [
     'last_name': 'Chaipanna',
     'email': 'KingRukDek99@kmitl.ac.th',
     'mobile_number': '082-368-6056',
+    'report_count': 6,
   },
 ];
 
-class UserVerifiedScreen extends StatefulWidget {
-  const UserVerifiedScreen({Key? key}) : super(key: key);
+class UserReportScreen extends StatefulWidget {
+  const UserReportScreen({Key? key}) : super(key: key);
 
   @override
-  State<UserVerifiedScreen> createState() => _UserVerifiedScreenState();
+  State<UserReportScreen> createState() => _UserReportScreenState();
 }
 
-class _UserVerifiedScreenState extends State<UserVerifiedScreen> {
+class _UserReportScreenState extends State<UserReportScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openEndDrawer() {
@@ -113,7 +116,7 @@ class _UserVerifiedScreenState extends State<UserVerifiedScreen> {
                 padding: EdgeInsets.fromLTRB(20, 12, 0, 0),
                 height: 24,
                 child: Text(
-                  'Admin - Verify Review',
+                  'Admin - User Report Review',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 12,
@@ -122,7 +125,7 @@ class _UserVerifiedScreenState extends State<UserVerifiedScreen> {
                   ),
                 ),
               );
-            return ProfileContainer(profile: profile, type: 'verify');
+            return ProfileContainer(profile: profile, type: 'report');
           },
           separatorBuilder: (context, index) => SizedBox(
             height: 10,

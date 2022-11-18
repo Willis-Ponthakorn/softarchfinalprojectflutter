@@ -288,7 +288,7 @@ class AdminNavigateDrawer extends StatelessWidget {
                 size: 30,
               ),
               title: Text(
-                "Post",
+                "Post Approve",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               onTap: () {
@@ -302,7 +302,7 @@ class AdminNavigateDrawer extends StatelessWidget {
                 size: 30,
               ),
               title: Text(
-                "Report",
+                "Post Report",
                 style: TextStyle(color: Colors.white, fontSize: 20),
                 maxLines: 1,
               ),
@@ -317,7 +317,7 @@ class AdminNavigateDrawer extends StatelessWidget {
                 size: 30,
               ),
               title: Text(
-                "Verified",
+                "User Verified",
                 style: TextStyle(color: Colors.white, fontSize: 20),
                 maxLines: 1,
               ),
@@ -326,6 +326,20 @@ class AdminNavigateDrawer extends StatelessWidget {
               },
             ),
             //more child menu
+            ListTile(
+              leading: Icon(
+                Icons.arrow_right,
+                size: 30,
+              ),
+              title: Text(
+                "User Report",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+                maxLines: 1,
+              ),
+              onTap: () {
+                //action on press
+              },
+            ),
           ],
         ),
         ListTile(

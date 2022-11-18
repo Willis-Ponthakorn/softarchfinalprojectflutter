@@ -125,7 +125,7 @@ class _AdminPostReportScreenState extends State<AdminPostReportScreen> {
                 padding: EdgeInsets.fromLTRB(20, 12, 0, 0),
                 height: 24,
                 child: Text(
-                  'Admin - Report Review',
+                  'Admin - Post Report Review',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 12,

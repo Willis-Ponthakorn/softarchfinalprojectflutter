@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:softarchfinal/widget/tag_button.dart';
 
-class PostContainer extends StatefulWidget {
-  //type = approve report admin user owner
+class ProfileContainer extends StatefulWidget {
+  // type = verify , report
   final String type;
-  final Map post;
-  const PostContainer({Key? key, required this.post, required this.type})
+  final Map profile;
+  const ProfileContainer({Key? key, required this.type, required this.profile})
       : super(key: key);
 
   @override
-  State<PostContainer> createState() => _PostContainer();
+  State<ProfileContainer> createState() => _ProfileContainerState();
 }
 
-class _PostContainer extends State<PostContainer> {
+class _ProfileContainerState extends State<ProfileContainer> {
   @override
   Widget build(BuildContext context) {
     const double avatarDiameter = 44;
@@ -49,7 +48,7 @@ class _PostContainer extends State<PostContainer> {
                         borderRadius: BorderRadius.circular(avatarDiameter / 2),
                         //ใส่รูป
                         child: Image(
-                          image: NetworkImage(widget.post['user_pic']),
+                          image: NetworkImage(widget.profile['user_pic']),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -65,95 +64,76 @@ class _PostContainer extends State<PostContainer> {
                       children: [
                         Text(
                           //ใส่ชื่อแต่ละคนโพสต์
-                          widget.post['username'],
+                          widget.profile['username'],
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Container(
-                              //decoration: BoxDecoration(color: Colors.red),
-                              alignment: Alignment.centerLeft,
-                              height: 15,
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              child: ListView.builder(
-                                itemCount: widget.post['tags'].length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return TagButton(
-                                    onPressed: () => print('tag'),
-                                    tags: widget.post['tags'][index],
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),
-                  if (widget.type == 'user')
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.flag),
-                        iconSize: 23.0,
-                        onPressed: () => print("report")),
-                  if (widget.type == 'admin' || widget.type == 'owner')
+                  if (widget.type == 'report')
+                    if (widget.type == 'report')
+                      IconButton(
+                          icon: FaIcon(FontAwesomeIcons.xmark),
+                          iconSize: 23.0,
+                          onPressed: () => print("report")),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 4,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.profile['first_name'] +
+                          ' ' +
+                          widget.profile['last_name'],
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      widget.profile['email'],
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      widget.profile['mobile_number'],
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (widget.type == 'report')
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Report count : ' +
+                          widget.profile['report_count'].toString(),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     IconButton(
                         icon: FaIcon(FontAwesomeIcons.trashCan),
                         iconSize: 23.0,
-                        onPressed: () => print("report")),
-                  if (widget.type == 'report')
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.xmark),
-                        iconSize: 23.0,
-                        onPressed: () => print("report")),
-                ],
-              ),
-              _postCaption(context, widget.post['postText']),
-              if (widget.post['attachedImageUrl'] != '')
-                _postImage(context, widget.post['attachedImageUrl']),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                          child: Text(
-                            widget.post['post_date'],
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (widget.type == 'admin' || widget.type == 'user')
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.share),
-                        iconSize: 23.0,
                         onPressed: () => print("share")),
-                  if (widget.type == 'report')
-                    Row(
-                      children: [
-                        Text(
-                          'Report count : ' +
-                              widget.post['report_count'].toString(),
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        IconButton(
-                            icon: FaIcon(FontAwesomeIcons.trashCan),
-                            iconSize: 23.0,
-                            onPressed: () => print("share")),
-                      ],
-                    ),
-                  if (widget.type == 'approve')
+                  ],
+                ),
+              if (widget.type == 'verify')
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
                     Row(
                       children: [
                         Padding(
@@ -198,37 +178,12 @@ class _PostContainer extends State<PostContainer> {
                         ),
                       ],
                     )
-                ],
-              ),
+                  ],
+                ),
             ],
           ),
         ),
       ),
     );
   }
-}
-
-Widget _postImage(BuildContext context, String image) {
-  return Container(
-    margin: EdgeInsets.fromLTRB(25, 5, 25, 5),
-    child: Image(
-      image: NetworkImage(image),
-      fit: BoxFit.cover,
-    ),
-  );
-}
-
-Widget _postCaption(BuildContext context, String text_post) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(
-      horizontal: 20,
-      vertical: 4,
-    ),
-    child: Text(
-      text_post,
-      style: TextStyle(
-        color: Colors.black,
-      ),
-    ),
-  );
 }
