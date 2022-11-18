@@ -20,7 +20,8 @@ List posts = [
     'attachedImageUrl': 'https://dc.lnwfile.com/_/dc/_raw/u8/0p/0u.jpg',
     'tags': ['ไอควาย', 'ปัญญาอ่อน'],
     'post_date':
-        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.'
+        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.',
+    'report_count': 6,
   },
   {
     'postID': 2,
@@ -32,7 +33,8 @@ List posts = [
     'attachedImageUrl': '',
     'tags': ['สีชมพู', 'รักภูมิ', 'เด็กคิง'],
     'post_date':
-        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.'
+        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.',
+    'report_count': 2,
   },
   {
     'postID': 3,
@@ -44,7 +46,8 @@ List posts = [
     'attachedImageUrl': '',
     'tags': ['สีชมพู', 'รักภูมิ', 'เด็กคิง'],
     'post_date':
-        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.'
+        '${now.day}/${now.month}/${now.year}   ${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')} น.',
+    'report_count': 99,
   },
 ];
 

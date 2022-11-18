@@ -137,10 +137,22 @@ class _PostContainer extends State<PostContainer> {
                         iconSize: 23.0,
                         onPressed: () => print("share")),
                   if (widget.type == 'report')
-                    IconButton(
-                        icon: FaIcon(FontAwesomeIcons.trashCan),
-                        iconSize: 23.0,
-                        onPressed: () => print("share")),
+                    Row(
+                      children: [
+                        Text(
+                          'Report count : ' +
+                              widget.post['report_count'].toString(),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                            icon: FaIcon(FontAwesomeIcons.trashCan),
+                            iconSize: 23.0,
+                            onPressed: () => print("share")),
+                      ],
+                    ),
                   if (widget.type == 'approve')
                     Row(
                       children: [
