@@ -48,14 +48,14 @@ List posts = [
   },
 ];
 
-class AdminPostApproveScreen extends StatefulWidget {
-  const AdminPostApproveScreen({Key? key}) : super(key: key);
+class AdminPostReportScreen extends StatefulWidget {
+  const AdminPostReportScreen({Key? key}) : super(key: key);
 
   @override
-  State<AdminPostApproveScreen> createState() => _AdminPostApproveScreenState();
+  State<AdminPostReportScreen> createState() => _AdminPostReportScreenState();
 }
 
-class _AdminPostApproveScreenState extends State<AdminPostApproveScreen> {
+class _AdminPostReportScreenState extends State<AdminPostReportScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _openEndDrawer() {
@@ -122,7 +122,7 @@ class _AdminPostApproveScreenState extends State<AdminPostApproveScreen> {
                 padding: EdgeInsets.fromLTRB(20, 12, 0, 0),
                 height: 24,
                 child: Text(
-                  'Admin - Post Review',
+                  'Admin - Report Review',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 12,
@@ -131,7 +131,7 @@ class _AdminPostApproveScreenState extends State<AdminPostApproveScreen> {
                   ),
                 ),
               );
-            return PostContainer(post: post, type: 'approve');
+            return PostContainer(post: post, type: 'report');
           },
           separatorBuilder: (context, index) => SizedBox(
             height: 10,

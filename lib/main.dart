@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softarchfinal/screen/home.dart';
 import 'package:softarchfinal/screen/postapprove.dart';
+import 'package:softarchfinal/screen/postreport.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: AdminPostApproveScreen());
+        home: AdminPostReportScreen());
   }
 }

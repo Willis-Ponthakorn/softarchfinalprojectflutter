@@ -5,8 +5,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:softarchfinal/widget/tag_button.dart';
 
 class PostContainer extends StatefulWidget {
+  //type = approve report admin user
+  final String type;
   final Map post;
-  const PostContainer({Key? key, required this.post}) : super(key: key);
+  const PostContainer({Key? key, required this.post, required this.type})
+      : super(key: key);
 
   @override
   State<PostContainer> createState() => _PostContainer();
@@ -27,7 +30,7 @@ class _PostContainer extends State<PostContainer> {
           ),
           margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
           elevation: 0,
-          color: Colors.green,
+          color: Color.fromRGBO(217, 217, 217, 1),
           child: Column(
             children: [
               Row(
@@ -91,10 +94,21 @@ class _PostContainer extends State<PostContainer> {
                       ],
                     ),
                   ),
-                  IconButton(
-                      icon: FaIcon(FontAwesomeIcons.flag),
-                      iconSize: 23.0,
-                      onPressed: () => print("report")),
+                  if (widget.type == 'user')
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.flag),
+                        iconSize: 23.0,
+                        onPressed: () => print("report")),
+                  if (widget.type == 'admin')
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.trashCan),
+                        iconSize: 23.0,
+                        onPressed: () => print("report")),
+                  if (widget.type == 'report')
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.xmark),
+                        iconSize: 23.0,
+                        onPressed: () => print("report")),
                 ],
               ),
               _postCaption(context, widget.post['postText']),
@@ -117,10 +131,61 @@ class _PostContainer extends State<PostContainer> {
                       ],
                     ),
                   ),
-                  IconButton(
-                      icon: FaIcon(FontAwesomeIcons.share),
-                      iconSize: 23.0,
-                      onPressed: () => print("share")),
+                  if (widget.type == 'admin' || widget.type == 'user')
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.share),
+                        iconSize: 23.0,
+                        onPressed: () => print("share")),
+                  if (widget.type == 'report')
+                    IconButton(
+                        icon: FaIcon(FontAwesomeIcons.trashCan),
+                        iconSize: 23.0,
+                        onPressed: () => print("share")),
+                  if (widget.type == 'approve')
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(12, 0, 12, 10),
+                          child: SizedBox(
+                            height: 40,
+                            width: 40,
+                            child: Ink(
+                              decoration: ShapeDecoration(
+                                color: Colors.green,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                              ),
+                              child: IconButton(
+                                  color: Colors.white,
+                                  icon: FaIcon(FontAwesomeIcons.check),
+                                  iconSize: 23.0,
+                                  onPressed: () => print("share")),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 12, 10),
+                          child: SizedBox(
+                            height: 40,
+                            width: 40,
+                            child: Ink(
+                              decoration: ShapeDecoration(
+                                color: Colors.red,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                              ),
+                              child: IconButton(
+                                  color: Colors.white,
+                                  icon: FaIcon(FontAwesomeIcons.xmark),
+                                  iconSize: 23.0,
+                                  onPressed: () => print("share")),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                 ],
               ),
             ],
@@ -150,7 +215,7 @@ Widget _postCaption(BuildContext context, String text_post) {
     child: Text(
       text_post,
       style: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
     ),
   );
