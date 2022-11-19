@@ -63,13 +63,24 @@ class _PostContainer extends State<PostContainer> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          //ใส่ชื่อแต่ละคนโพสต์
-                          widget.post['username'],
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              //ใส่ชื่อแต่ละคนโพสต์
+                              widget.post['username'],
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            if (widget.post['user_verify'])
+                              FaIcon(
+                                FontAwesomeIcons.userCheck,
+                                size: 15,
+                                color: Colors.green,
+                              )
+                          ],
                         ),
                         Row(
                           children: [

@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   email_validator: ^2.1.17
-  font_awesome_flutter: ^10.1.0
+  font_awesome_flutter: ^10.2.1
   snippet_coder_utils: ^1.0.12
   dropdown_button2: ^1.6.2
 
