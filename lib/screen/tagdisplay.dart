@@ -98,10 +98,6 @@ class _TagDisplayScreenState extends State<TagDisplayScreen> {
         ),
         actions: <Widget>[
           CircleButton(
-              icon: FaIcon(FontAwesomeIcons.bell),
-              iconSize: 23.0,
-              onPressed: () => print('bell')),
-          CircleButton(
             icon: FaIcon(FontAwesomeIcons.gripVertical),
             iconSize: 23.0,
             onPressed: _openEndDrawer,
