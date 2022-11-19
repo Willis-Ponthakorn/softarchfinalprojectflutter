@@ -4,6 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:softarchfinal/screen/home.dart';
+import 'package:softarchfinal/screen/postapprove.dart';
+import 'package:softarchfinal/screen/postreport.dart';
+import 'package:softarchfinal/screen/userreport.dart';
+import 'package:softarchfinal/screen/userverified.dart';
 
 class NavigateDrawer extends StatelessWidget {
   const NavigateDrawer({Key? key}) : super(key: key);
@@ -293,6 +297,9 @@ class AdminNavigateDrawer extends StatelessWidget {
               ),
               onTap: () {
                 //action on press
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AdminPostApproveScreen();
+                }));
               },
             ),
 
@@ -308,6 +315,9 @@ class AdminNavigateDrawer extends StatelessWidget {
               ),
               onTap: () {
                 //action on press
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AdminPostReportScreen();
+                }));
               },
             ),
 
@@ -323,6 +333,9 @@ class AdminNavigateDrawer extends StatelessWidget {
               ),
               onTap: () {
                 //action on press
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return UserVerifiedScreen();
+                }));
               },
             ),
             //more child menu
@@ -337,7 +350,9 @@ class AdminNavigateDrawer extends StatelessWidget {
                 maxLines: 1,
               ),
               onTap: () {
-                //action on press
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return UserReportScreen();
+                }));
               },
             ),
           ],
