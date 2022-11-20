@@ -9,12 +9,15 @@ import 'package:softarchfinal/widget/post_container.dart';
 var now = DateTime.now();
 bool tagstatus = false;
 String tagtoppic = 'รักภูมิ';
+//List taglist = ['รักภูมิ', 'ไอควาย'];
 List posts = [
+  {'postID': 0},
   {
     'postID': 1,
     'user_pic':
         'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
     'username': 'Username',
+    'user_verify': false,
     'postText':
         'F*ck youaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     'attachedImageUrl': 'https://dc.lnwfile.com/_/dc/_raw/u8/0p/0u.jpg',
@@ -162,7 +165,10 @@ class _TagDisplayScreenState extends State<TagDisplayScreen> {
                   ),
                 ),
               );
-            return PostContainer(post: post, type: 'user');
+            //if (taglist.any((e) => post['tags'].contains(e)))
+            if (post['tags'].contains(tagtoppic))
+              return PostContainer(post: post, type: 'user');
+            return Container();
           },
           separatorBuilder: (context, index) => SizedBox(
             height: 10,
