@@ -3,9 +3,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:softarchfinal/screen/followingtag.dart';
 import 'package:softarchfinal/screen/home.dart';
 import 'package:softarchfinal/screen/postapprove.dart';
 import 'package:softarchfinal/screen/postreport.dart';
+import 'package:softarchfinal/screen/userprofilepage.dart';
 import 'package:softarchfinal/screen/userreport.dart';
 import 'package:softarchfinal/screen/userverified.dart';
 
@@ -114,6 +116,10 @@ class NavigateDrawer extends StatelessWidget {
               ),
               onTap: () {
                 //action on press
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return FollowingTagScreen();
+                }));
               },
             ),
 
@@ -131,6 +137,9 @@ class NavigateDrawer extends StatelessWidget {
           ),
           onTap: () {
             Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return UserProfilePage();
+            }));
           },
         ),
         ListTile(
@@ -273,6 +282,9 @@ class AdminNavigateDrawer extends StatelessWidget {
           ),
           onTap: () {
             Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return UserProfilePage();
+            }));
           },
         ),
         ExpansionTile(
